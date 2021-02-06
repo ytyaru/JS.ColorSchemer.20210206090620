@@ -10,7 +10,6 @@ class CSS {
     static createStyle(colors) {
         const style = document.createElement('style');
         style.id = CSS.#id;
-        style.rel = 'stylesheet';
         document.head.appendChild(style);
         return style;
     }

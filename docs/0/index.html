@@ -3,9 +3,19 @@
 <head>
     <meta charset="utf-8">
     <title>メインカラーを決めることで他の色も自動決定する。</title>
+    <script src="../lib/chroma-2.1.0.min.js"></script>
+    <script src="./Color.js"></script>
     <script src="./main.js"></script>
 </head>
 <body>
 <h1><a href="https://github.com/ytyaru/JS.ColorSetter.20210206090620">メインカラーを決めることで他の色も自動決定する。</a></h1>
+
+<input id="back-color" type="color" value="#FFFFFF"></input>
+<input id="fore-color" type="color" value="#FFFFFF" disabled></input>
+<input id="selected-back-color" type="color" value="#FFFFFF" disabled></input>
+<input id="selected-fore-color" type="color" value="#FFFFFF" disabled></input>
+<input id="shadow-color" type="color" value="#FFFFFF" disabled></input>
+<input id="focus-back-color" type="color" value="#FFFFFF" disabled></input>
+<input id="focus-fore-color" type="color" value="#FFFFFF" disabled></input>
 </body>
 </html>

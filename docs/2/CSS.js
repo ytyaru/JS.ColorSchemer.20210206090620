@@ -19,15 +19,15 @@ class CSS {
                 background-color: ${colors.back};
                 color: ${colors.fore};
             }
-            input[type="radio"]:focus + label {
+            .auto-color input[type="radio"]:focus + label {
                 border-color: ${colors.shadow};
                 box-shadow: 0 0 5px ${colors.shadow};
             }
-            input[type="radio"] + label:hover {
+            .auto-color input[type="radio"] + label:hover {
                 border-color: ${colors.shadow};
                 box-shadow: 0 0 5px ${colors.shadow};
             }
-            input[type="radio"]:checked + label {
+            .auto-color input[type="radio"]:checked + label {
                 background-color: ${colors.selectedBack};
                 color: ${colors.selectedFore};
             }

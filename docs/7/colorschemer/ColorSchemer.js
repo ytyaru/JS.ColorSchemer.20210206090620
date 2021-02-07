@@ -1,13 +1,13 @@
 class ColorSchemer {
     #files
-    #styles
+    #css
     constructor() {
         this.#files = [];
-        this.#styles = [];
+        this.#css = [];
     }
     async schemeFromFile(backColor='#FFFFFF', url='./auto-color.css') {
         await this.#createCss(url);
-        return this.#scheme(backColor);
+        return this.scheme(backColor);
     }
     async #createCss(url) {
         const files = this.#files.filter(obj=>obj.url === url);
@@ -15,7 +15,7 @@ class ColorSchemer {
         const template = await Loader.load(url);
         const id = this.#createFiles(url);
         const query = `.${id}`;
-        this.#styles.push(new Style(id, query, template));
+        this.#css.push(new Style(id, query, template));
     }
     #createFiles(url) { // id重複ならサフィックス付与する
         const preId = FileName.getBaseName(url);  // 仮ID＝ファイル名（拡張子省く）
@@ -24,11 +24,11 @@ class ColorSchemer {
         this.#files.push({url:url, preId:preId, id:id});
         return id;
     }
-    #scheme(backColor='#FFFFFF') {
+    scheme(backColor='#FFFFFF') {
         const result = [];
         const colors = Color.getColors(backColor);
-        for (let style of this.#styles) {
-            result.push({id: style.replace(colors), colors: colors});
+        for (let css of this.#css) {
+            result.push({id: css.replace(colors), colors: colors});
         }
         return result;
     }

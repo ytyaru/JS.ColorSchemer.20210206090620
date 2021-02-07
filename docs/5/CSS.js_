@@ -1,42 +1,35 @@
 class CSS {
-    #regexps = []
-    #id = 'style-auto-color'
-    #query = '.auto-color'
-    #template = '{{query}} { background-color: {{back}}; }';
-    constructor(id='style-auto-color', query='.auto-color', template='{{query}} { background-color: {{back}}; }') {
-        this.#id = id;
-        this.#query = query;
-        this.#template = template;
-    }
-//    replace(colors, id='style-auto-color', query='.auto-color', template='{{query}} { background-color: {{back}}; }') {
-    replace(colors) {
-        const style = document.querySelector(`#${this.#id}`) || this.createStyle();
+    static #regexps = []
+    static #id = 'style-auto-color'
+    static #query = '.auto-color'
+    static #template
+    static replace(colors, id='style-auto-color', query='.auto-color', template='{{query}} { background-color: {{back}}; }') {
+        CSS.#id = id;
+        CSS.#query = query;
+        console.log(`id=${id}`, `${CSS.#id}`, 'query', document.querySelector(`#${CSS.#id}`));
+        const style = document.querySelector(`#${CSS.#id}`) || CSS.createStyle();
         console.log('style:', style);
-        style.textContent = this.replaceTemplate(colors);
+        style.textContent = CSS.replaceTemplate(colors, template);
 //        style.textContent = CSS.createTemplate(colors);
-        return this.#id;
     }
-    createStyle(colors) {
+    static createStyle(colors) {
         const style = document.createElement('style');
-        style.id = this.#id;
+        style.id = CSS.#id;
         document.head.appendChild(style);
         return style;
     }
-    replaceTemplate(colors) {
-        this.#regexps = [];
-        this.#regexps.push({regexp: new RegExp('{{[\s]*query[\s]*}}', 'g'), replace: this.#query});
-        for (let key of ['back', 'fore', 'selectedBack', 'selectedFore', 'shadow']) {
-            this.#regexps.push({regexp: new RegExp(`{{[\s]*${key}[\s]*}}`, 'g'), replace: colors[`${key}`]});
-        }
+    static replaceTemplate(colors, template) {
+//        if (0 === CSS.#regexps.length) {
+            CSS.#regexps.push({regexp: new RegExp('{{[\s]*query[\s]*}}', 'g'), replace: this.#query});
+            for (let key of ['back', 'fore', 'selectedBack', 'selectedFore', 'shadow']) {
+                CSS.#regexps.push({regexp: new RegExp(`{{[\s]*${key}[\s]*}}`, 'g'), replace: colors[`${key}`]});
+            }
+//        }
         console.log(this.#regexps);
-        let css = this.#template;
         for (let regexp of this.#regexps) {
-            css = css.replace(regexp.regexp, regexp.replace);
+            template = template.replace(regexp.regexp, regexp.replace);
         }
         /*
-        for (let regexp of this.#regexps) {
-            css = css.replace(regexp.regexp, regexp.replace);
-        }
         template = template.replace(/{{[\s]*query[\s]*}}/g, this.#query);
         template = template.replace(/{{[\s]*back[\s]*}}/g, colors.back);
         template = template.replace(/{{[\s]*fore[\s]*}}/g, colors.fore);
@@ -45,10 +38,9 @@ class CSS {
         template = template.replace(/{{[\s]*shadow[\s]*}}/g, colors.shadow);
         */
         console.log(colors);
-        console.log(css);
-        return css;
+        console.log(template);
+        return template;
     }
-    /*
     static createTemplate(colors) {
         CSS.#template = `
             ${CSS.#query} {
@@ -86,5 +78,4 @@ class CSS {
         `;
         return CSS.#template;
     }
-    */
 }

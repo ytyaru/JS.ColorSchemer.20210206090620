@@ -1,0 +1,12 @@
+class ColorSchemer {
+    static schemeFromFile(backColor='#FFFFFF', url='./auto-color.css') {
+        const template = await Loader.load(url);
+        const id = url.split('/').slice(-1)[0];
+        ColorSchemer.scheme(backColor, id);
+    }
+    static scheme(backColor='#FFFFFF', id='style-auto-color', query='.auto-color') {
+        const colors = Color.getColors(backColor);
+        CSS.replace(colors, id, query);
+        return colors;
+    }
+}

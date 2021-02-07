@@ -1,12 +1,12 @@
 [ja](./README.ja.md)
 
-# ColorSetter
+# ColorSchemer
 
 By deciding the main color, other colors are also decided automatically.
 
 # DEMO
 
-* [DEMO](https://ytyaru.github.io/JS.ColorSetter.20210206090620/)
+* [DEMO](https://ytyaru.github.io/JS.ColorSchemer.20210206090620/)
 
 # Features
 
@@ -28,13 +28,13 @@ Linux raspberrypi 5.4.83-v7l+ #1379 SMP Mon Dec 14 13:11:54 GMT 2020 armv7l GNU/
 # Installation
 
 ```sh
-git clone https://github.com/ytyaru/JS.ColorSetter.20210206090620
+git clone https://github.com/ytyaru/JS.ColorSchemer.20210206090620
 ```
 
 # Usage
 
 1. Start the terminal
-    1. Move the current directory. To the path where index.html is. `cd JS.ColorSetter.20210206090620 / src`
+    1. Move the current directory. To the path where index.html is. `cd JS.ColorSchemer.20210206090620 / src`
     2. `python3 -m http.server 8000`
 2. Launch your browser
     1. Enter `http://0.0.0.0:8000/` in the URL field

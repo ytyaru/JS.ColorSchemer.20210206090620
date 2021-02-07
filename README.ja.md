@@ -1,12 +1,12 @@
 [en](./README.md)
 
-# ColorSetter
+# ColorSchemer
 
 　メインカラーを決めることで他の色も自動決定する。
 
 # デモ
 
-* [デモ](https://ytyaru.github.io/JS.ColorSetter.20210206090620/)
+* [デモ](https://ytyaru.github.io/JS.ColorSchemer.20210206090620/)
 
 # 特徴
 
@@ -28,13 +28,13 @@ Linux raspberrypi 5.4.83-v7l+ #1379 SMP Mon Dec 14 13:11:54 GMT 2020 armv7l GNU/
 # インストール
 
 ```sh
-git clone https://github.com/ytyaru/JS.ColorSetter.20210206090620
+git clone https://github.com/ytyaru/JS.ColorSchemer.20210206090620
 ```
 
 # 使い方
 
 1. ターミナルを起動する
-    1. カレントディレクトリを移動する。index.htmlがあるパスへ。`cd JS.ColorSetter.20210206090620/src`
+    1. カレントディレクトリを移動する。index.htmlがあるパスへ。`cd JS.ColorSchemer.20210206090620/src`
     2. `python3 -m http.server 8000`
 2. ブラウザを起動する
     1. `http://0.0.0.0:8000/` をURL欄に入力する
